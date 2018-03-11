@@ -1,20 +1,22 @@
 export const colors = {
   white: '#fff',
   black: '#000',
+  borderGrey: '#d9dadf',
+  lightGrey: '#bdbdbd',
+  headingGrey: '#6e767d',
+  veryDarkGrey: '#202833',
+  accentYellow: '#fec43b',
 };
 
 export const gradients = {
-  bubblesWrap: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.0), #f5f5f5)',
+  button: 'linear-gradient(to right, #e5b33e, #fec43b)',
 };
 
 export const fonts = {
   default: 'Open Sans',
   types: {
-    light: '300',
-    medium: '500',
-    large: '600',
-    bold: '700',
-    extraBold: '800',
+    normal: '400',
+    semibold: '600',
   },
 };
 

@@ -117,6 +117,7 @@ video {
   display: inline-block; }
 
 a {
+  color: inherit;
   background: transparent;
   text-decoration: none; }
 
@@ -160,7 +161,11 @@ textarea:focus {
   margin: 0;
   padding: 0; } */
 
+  body, html, #root, #root > div {
+    height: 100%;
+  }
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif; }
+  background-color: #eaeaea;
+  font-family: 'Open Sans', sans-serif; }

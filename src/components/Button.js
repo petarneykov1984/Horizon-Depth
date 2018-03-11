@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
-import { colors, transitions, shadows, fonts, breakpoints } from '../theme';
+import { colors, transitions, shadows, fonts, breakpoints, gradients } from '../theme';
 import Icon from '../components/Icon';
 import Loader from '../components/Loader';
 
@@ -8,15 +8,14 @@ const DEFAULT_POSITION = 'left';
 
 const styles = {
   btnWrap: {
-    display: 'flex',
+    display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: '12px 30px',
-    margin: '0 0 10px',
-    color: colors.lightWhite,
-    backgroundColor: colors.buttonBlue,
-    boxShadow: shadows.buttonBlue,
-    borderRadius: '5px',
+    padding: '12px 48px',
+    margin: '0 0 15px',
+    color: colors.white,
+    backgroundImage: gradients.button,
+    borderRadius: '2px',
     border: 'none',
     cursor: 'pointer',
     transition: transitions.default,
@@ -33,9 +32,8 @@ const styles = {
   },
   label: {
     fontFamily: fonts.default,
-    fontWeight: fonts.types.bold,
+    fontWeight: fonts.types.semibold,
     fontSize: '14px',
-    textTransform: 'uppercase',
     textDecoration: 'none',
     order: 1,
   },
@@ -129,7 +127,7 @@ class Button extends Component {
 }
 
 Button.defaultProps = {
-  onClick: () => {}
+  onClick: () => { }
 };
 
 export default Radium(Button);
