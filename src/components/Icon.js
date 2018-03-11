@@ -5,7 +5,7 @@ import { colors, sizes, transitions, fonts } from '../theme';
 const styles = {
   icon: {
     display: 'inline-block',
-    fontFamily: 'utto-webicons',
+    fontFamily: 'horizon',
     fontStyle: 'normal',
     fontWeight: fonts.types.medium,
     fontVariant: 'normal',

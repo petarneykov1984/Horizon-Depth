@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
-import { colors, breakpoints } from '../theme';
+import { colors, breakpoints, icons } from '../theme';
+import Icon from '../components/Icon';
 
 const styles = {
   page: {
@@ -24,6 +25,8 @@ class Landing extends Component {
           Header
         </header>
         <h1>CONTENT HERE</h1>
+        <Icon type={icons.twitter} color={colors.black} />
+        <Icon type={icons.logo} color={colors.black} />
       </div>
     );
   }
