@@ -1,0 +1,5 @@
+1. clone the repo
+2. call yarn install
+3. yarn start
+
+This will open the project in http://localhost:3000
