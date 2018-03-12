@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
-import { colors, breakpoints, icons, fonts, shadows, h2 } from '../theme';
+import { colors, icons, shadows, h2 } from '../theme';
 import Icon from '../components/Icon';
-import Button from '../components/Button';
 import { Link } from 'react-router-dom';
 import LoginForm from '../components/LoginForm';
 
