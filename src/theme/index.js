@@ -3,9 +3,12 @@ export const colors = {
   black: '#000',
   borderGrey: '#d9dadf',
   lightGrey: '#bdbdbd',
+  formGrey: '#e8e9ea',
   headingGrey: '#6e767d',
   veryDarkGrey: '#202833',
+  darkGrey: '#4c555c',
   accentYellow: '#fec43b',
+  dangerRed: '#d0021b',
 };
 
 export const gradients = {
@@ -52,4 +55,11 @@ export const breakpoints = {
 };
 
 export const shadows = {
+  popup: '0 2px 7px 0 rgba(0, 0, 0, 0.15)',
+};
+
+export const h2 = {
+  fontSize: '20px',
+  margin: '0 0 28px',
+  color: colors.headingGrey,
 };

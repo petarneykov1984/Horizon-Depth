@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
-import { colors, breakpoints, icons, fonts } from '../theme';
+import { colors, breakpoints, icons, fonts, h2 } from '../theme';
 import Icon from '../components/Icon';
 import Button from '../components/Button';
+import { Link } from 'react-router-dom';
 
 const styles = {
   page: {
@@ -10,9 +11,6 @@ const styles = {
     textAlign: 'center',
     display: 'flex',
     flexDirection: 'column',
-
-    [breakpoints.mobile]: {
-    },
   },
   headingWrapper: {
     padding: '112px 30px',
@@ -28,11 +26,7 @@ const styles = {
     textTransform: 'uppercase',
     lineHeight: 1.6,
   },
-  h2: {
-    fontSize: '20px',
-    margin: '0 0 28px',
-    color: colors.headingGrey,
-  },
+  h2: h2,
   small: {
     fontSize: '12px',
     color: colors.headingGrey,
@@ -69,7 +63,7 @@ class Landing extends Component {
           </div>
 
           <h2 style={styles.h2}>New generation of image editing by artificial intelligence, for artists</h2>
-          <Button label={`Log in`} />
+          <Link to={`/login`}><Button label={`Log in`} /></Link>
           <div style={{ ...styles.small, fontWeight: fonts.types.semibold }}>Invites only.</div>
           <div style={styles.small}>For more info, contact us through social media.</div>
         </div>
