@@ -3,7 +3,10 @@ import Radium from 'radium';
 import { colors, icons, fonts, h2 } from '../theme';
 import Icon from '../components/Icon';
 import Button from '../components/Button';
+import Dialog from '../components/Dialog';
 import { Link } from 'react-router-dom';
+import LoginForm from '../components/LoginForm';
+import { withRouter } from 'react-router-dom';
 
 const styles = {
   page: {
@@ -53,6 +56,24 @@ const styles = {
 };
 
 class Landing extends Component {
+  constructor() {
+    super();
+    this.state = {
+      dialogIsVisible: false,
+    };
+  }
+
+  toggleDialog() {
+    this.setState({
+      dialogIsVisible: !this.state.dialogIsVisible,
+    });
+  }
+
+  submit = values => {
+    console.log('Login form values are: ', values);
+    // history.push('/upload');
+  }
+
   render() {
     return (
       <div style={styles.page}>
@@ -63,8 +84,18 @@ class Landing extends Component {
           </div>
 
           <h2 style={styles.h2}>New generation of image editing by artificial intelligence, for artists</h2>
-          <Link to={`/login`}><Button label={`Log in`} /></Link>
-          <div style={{ ...styles.small, fontWeight: fonts.types.semibold }}>Invites only.</div>
+          <Link to={`/login`}></Link>
+
+          <Button label={`Log in`} onClick={() => this.toggleDialog()} />
+
+          {
+            this.state.dialogIsVisible && (
+              <Dialog title={`Log in`} onClose={() => this.toggleDialog()}>
+                <LoginForm onSubmit={this.submit} />
+              </Dialog>
+            )
+          }
+          < div style={{ ...styles.small, fontWeight: fonts.types.semibold }}>Invites only.</div>
           <div style={styles.small}>For more info, contact us through social media.</div>
         </div>
 

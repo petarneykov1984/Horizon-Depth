@@ -1,9 +1,10 @@
 {
-  "name": "Utto-Expo-App",
+  "name": "Horizon-Depth-App",
   "version": "0.0.1",
-  "homepage": "/",
+  "homepage": "http://staging.athlonproduction.com/horizon/",
   "private": true,
   "dependencies": {
+    "animated": "^0.2.2",
     "babel-polyfill": "^6.26.0",
     "connected-react-router": "^4.3.0",
     "history": "^4.7.2",
