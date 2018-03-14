@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
-import { colors, fonts, breakpoints, icons } from '../theme';
+import { colors, fonts, icons } from '../theme';
 import Icon from '../components/Icon';
 import FeedbackForm from '../components/FeedbackForm';
 import Dialog from '../components/Dialog';
@@ -26,7 +26,7 @@ const styles = {
   },
   simpleLink: {
     display: 'inline-block',
-    margin: '0 0 0 15px',
+    marginLeft: '15px',
     fontSize: '12px',
     fontWeight: fonts.types.semibold,
     cursor: 'pointer',

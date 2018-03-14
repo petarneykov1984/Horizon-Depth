@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
-import { colors, icons, shadows, h2 } from '../theme';
-import Icon from '../components/Icon';
-import { Link } from 'react-router-dom';
-import LoginForm from '../components/LoginForm';
+import { h2 } from '../theme';
 import Header from '../components/Header';
 
 const styles = {
@@ -28,9 +25,6 @@ const styles = {
 };
 
 class Upload extends Component {
-  submit = values => {
-    console.log('Login form values are: ', values);
-  }
   render() {
     return (
       <div style={styles.page}>

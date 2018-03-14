@@ -117,7 +117,7 @@ class FeedbackForm extends Component {
           <Field placeholder="Subject" style={styles.formControl} id="subject" name="subject" component={InputField} label={`Subject`} />
         </div>
         <div style={styles.full}>
-          <Field placeholder="Message" style={{ ...styles.formControl, minHeight: 212, }} id="subject" name="subject" component={InputArea} label={`Message`} />
+          <Field placeholder="Message" style={{ ...styles.formControl, minHeight: 212, }} id="message" name="message" component={InputArea} label={`Message`} />
         </div>
         <div style={{ ...styles.full, ...styles.submitButtonRow }}>
           <Button fullWidth label={`Send feedback`} isDisabled={submitting || !valid} />

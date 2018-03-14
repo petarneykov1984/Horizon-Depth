@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Radium from 'radium';
 import Animated from 'animated/lib/targets/react-dom';
 import Icon from '../components/Icon';
-import { colors, breakpoints, fonts, icons, h2, shadows } from '../theme';
+import { colors, icons, h2, shadows } from '../theme';
 
 const styles = {
   container: {
@@ -30,7 +30,6 @@ const styles = {
     position: 'relative',
     zIndex: 20,
     margin: '0 auto',
-    backgroundColor: colors.white,
     overflowX: 'hidden',
     overflowY: 'auto',
     maxHeight: '100%',
@@ -39,7 +38,6 @@ const styles = {
     borderRadius: '8px',
     backgroundColor: colors.white,
     boxShadow: shadows.popup,
-    position: 'relative',
   },
   modalContent: {
     padding: '35px 28px 13px',

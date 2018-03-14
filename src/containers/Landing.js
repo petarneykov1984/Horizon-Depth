@@ -4,9 +4,7 @@ import { colors, icons, fonts, h2 } from '../theme';
 import Icon from '../components/Icon';
 import Button from '../components/Button';
 import Dialog from '../components/Dialog';
-import { Link } from 'react-router-dom';
 import LoginForm from '../components/LoginForm';
-import { push } from 'connected-react-router';
 
 const styles = {
   page: {
