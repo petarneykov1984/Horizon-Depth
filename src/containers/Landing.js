@@ -6,7 +6,7 @@ import Button from '../components/Button';
 import Dialog from '../components/Dialog';
 import { Link } from 'react-router-dom';
 import LoginForm from '../components/LoginForm';
-import { withRouter } from 'react-router-dom';
+import { push } from 'connected-react-router';
 
 const styles = {
   page: {
@@ -71,7 +71,7 @@ class Landing extends Component {
 
   submit = values => {
     console.log('Login form values are: ', values);
-    // history.push('/upload');
+    this.props.history.push('/upload');
   }
 
   render() {
@@ -84,8 +84,6 @@ class Landing extends Component {
           </div>
 
           <h2 style={styles.h2}>New generation of image editing by artificial intelligence, for artists</h2>
-          <Link to={`/login`}></Link>
-
           <Button label={`Log in`} onClick={() => this.toggleDialog()} />
 
           {

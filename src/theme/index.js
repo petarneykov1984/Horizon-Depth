@@ -10,6 +10,7 @@ export const colors = {
   darkGrey: '#4c555c',
   accentYellow: '#fec43b',
   dangerRed: '#d0021b',
+  navDarkGrey: '#29323e',
 };
 
 export const gradients = {

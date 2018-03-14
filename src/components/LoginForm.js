@@ -108,7 +108,7 @@ class LoginForm extends Component {
           <Field placeholder="Password" style={styles.formControl} id="password" name="password" component={InputField} label={`Passsword`} />
         </div>
         <div style={{ ...styles.full, ...styles.submitButtonRow }}>
-          <Button label={`Log in`} isDisabled={submitting || !valid} />
+          <Button fullWidth label={`Log in`} isDisabled={submitting || !valid} />
         </div>
       </form>
 

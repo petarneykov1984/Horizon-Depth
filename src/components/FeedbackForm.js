@@ -12,52 +12,39 @@ const styles = {
       paddingRight: '0',
     },
   },
-  half: {
-    width: '50%',
-    paddingRight: '30px',
-    marginBottom: '32px',
+  full: {
+    width: '100%',
+    marginBottom: '8px',
     [breakpoints.mobile]: {
-      width: '100%',
       paddingRight: '0',
     },
   },
-  full: {
-    width: '100%',
-    paddingRight: '30px',
-    marginBottom: '32px',
-    [breakpoints.mobile]: {
-      paddingRight: '0',
-    },
+  submitButtonRow: {
+    padding: '10px 0 0',
   },
   formControl: {
     width: '100%',
     padding: '10px 12px 9px',
-    borderWidth: '1px',
-    borderStyle: 'solid',
-    borderColor: colors.black10,
-    backgroundColor: colors.black02,
+    backgroundColor: colors.formGrey,
+    color: colors.darkGrey,
     fontSize: '14px',
     lineHeight: '17px',
-    fontFamily: fonts.helveticaThin,
+    borderRadius: '2px',
+    border: 'none',
+    fontFamily: fonts.default,
   },
   inputWrapper: {
     position: 'relative',
   },
-  label: {
-    display: 'block',
-    fontSize: '14px',
-    margin: '0 0 9px',
-    fontFamily: fonts.miller,
-  },
   error: {
     position: 'absolute',
-    top: 41,
-    left: 0,
+    bottom: 10,
+    right: 11,
     display: 'block',
-    fontSize: '10px',
+    fontSize: '14px',
     lineHeight: '1.4',
-    fontFamily: fonts.helveticaRoman,
-    color: colors.monza,
+    fontFamily: fonts.defdault,
+    color: colors.dangerRed,
   },
   description: {
     position: 'absolute',
@@ -70,7 +57,7 @@ const styles = {
     color: colors.superLightGrey,
   },
   required: {
-    color: colors.monza,
+    color: colors.dangerRed,
   },
   requiredText: {
     margin: '0 24px 0 0',
@@ -78,41 +65,38 @@ const styles = {
     lineHeight: '1.4',
     fontFamily: fonts.helveticaRoman,
   },
-  submitButtonRow: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    [breakpoints.mobile]: {
-      padding: '24px 0 0',
-      justifyContent: 'space-between',
-    },
-  },
   errorBorder: {
-    borderColor: colors.monza,
+    borderColor: colors.dangerRed,
   },
 }
 
 const validate = values => {
   const errors = {}
-  if (!values.firstName) {
-    errors.firstName = 'Please enter a valid first name';
+  if (!values.subject) {
+    errors.subject = 'Please, enter username';
   }
-  if (!values.lastName) {
-    errors.lastName = 'Please enter a valid last name';
-  }
-
-  if (!values.email) {
-    errors.email = 'Please enter email address';
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = 'Please enter a valid email address';
+  if (!values.message) {
+    errors.message = 'Please, enter your message';
   }
 
   return errors;
 }
 
-const InputField = ({ label, id, style, description, input: { value, onChange }, meta: { touched, error, warning } }) => (
+const InputField = ({ label, id, style, placeholder, description, input: { value, onChange }, meta: { touched, error, warning } }) => (
   <div style={styles.inputWrapper}>
-    <input label={label} id={id} style={{ ...style, ...(touched && error) && styles.errorBorder }} value={value} onChange={onChange} />
+    <input placeholder={placeholder} label={label} id={id} style={{ ...style, ...(touched && error) && styles.errorBorder }} value={value} onChange={onChange} />
+    <span style={styles.description}>{description}</span>
+    {
+
+      touched &&
+      (error && <span style={styles.error}>{error}</span>)
+    }
+  </div>
+);
+
+const InputArea = ({ label, id, style, children, placeholder, description, input: { onChange }, meta: { touched, error, warning } }) => (
+  <div style={styles.inputWrapper}>
+    <textarea placeholder={placeholder} label={label} id={id} style={{ ...style, ...(touched && error) && styles.errorBorder }} onChange={onChange}>{children}</textarea>
     <span style={styles.description}>{description}</span>
     {
 
@@ -129,28 +113,14 @@ class FeedbackForm extends Component {
 
     return (
       <form style={styles.container} onSubmit={handleSubmit}>
-        <div style={styles.half}>
-          <label style={styles.label} htmlFor={`firstName`}>First Name <span style={styles.required}>*</span></label>
-          <Field style={styles.formControl} id="firstName" name="firstName" component={InputField} label={`First Name`} />
-        </div>
-        <div style={styles.half}>
-          <label style={styles.label} htmlFor={`lastName`}>Last Name <span style={styles.required}>*</span></label>
-          <Field style={styles.formControl} id="lastName" name="lastName" component={InputField} label={`Last Name`} />
+        <div style={styles.full}>
+          <Field placeholder="Subject" style={styles.formControl} id="subject" name="subject" component={InputField} label={`Subject`} />
         </div>
         <div style={styles.full}>
-          <label style={styles.label} htmlFor={`email`}>Email Address <span style={styles.required}>*</span></label>
-          <Field style={styles.formControl} id="email" name="email" component={InputField} label={`Email Address`} />
-        </div>
-        <div style={styles.full}>
-          <label style={styles.label} htmlFor={`phoneNumber`}>Phone Number</label>
-          <Field style={styles.formControl} id="phoneNumber" name="phoneNumber" component={InputField} label={`Phone Number`} description={`Please include country code e.g. +44(0) 1234 222 333.`} />
+          <Field placeholder="Message" style={{ ...styles.formControl, minHeight: 212, }} id="subject" name="subject" component={InputArea} label={`Message`} />
         </div>
         <div style={{ ...styles.full, ...styles.submitButtonRow }}>
-          <span style={styles.requiredText}>
-            <span style={styles.required}>*</span> Required fields
-          </span>
-          {/* <BorderButton color={colors.monza} textColor={colors.white} filled text={'Submit'} disabled={submitting || !valid} /> */}
-          <Button label={`Log in`} isDisabled={submitting || !valid} />
+          <Button fullWidth label={`Send feedback`} isDisabled={submitting || !valid} />
         </div>
       </form>
 

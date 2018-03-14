@@ -4,8 +4,14 @@ import { colors, icons, shadows, h2 } from '../theme';
 import Icon from '../components/Icon';
 import { Link } from 'react-router-dom';
 import LoginForm from '../components/LoginForm';
+import Header from '../components/Header';
 
 const styles = {
+  page: {
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100%',
+  },
   container: {
     height: '100%',
     textAlign: 'center',
@@ -13,15 +19,10 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+    flex: '1',
   },
   content: {
-    padding: '35px 28px 13px',
-    width: 400,
-    maxWidth: '90%',
-    borderRadius: '8px',
-    backgroundColor: colors.white,
-    boxShadow: shadows.popup,
-    position: 'relative',
+    padding: '20px',
   },
   h2: h2,
 };
@@ -32,10 +33,12 @@ class Upload extends Component {
   }
   render() {
     return (
-      <div style={styles.container}>
-        <div style={styles.content}>
-          <Link style={styles.close} to={`/landing`}><Icon type={icons.close} size={20} color={colors.black} /></Link>
-          WelcomEEEEEEEEE!
+      <div style={styles.page}>
+        <Header />
+        <div style={styles.container}>
+          <div style={styles.content}>
+            Upload functionality here!
+        </div>
         </div>
       </div>
     );
