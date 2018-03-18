@@ -82,9 +82,9 @@ const validate = values => {
   return errors;
 }
 
-const InputField = ({ label, id, style, placeholder, description, input: { value, onChange }, meta: { touched, error, warning } }) => (
+const InputField = ({ label, id, style, placeholder, type, description, input: { value, onChange }, meta: { touched, error, warning } }) => (
   <div style={styles.inputWrapper}>
-    <input placeholder={placeholder} label={label} id={id} style={{ ...style, ...(touched && error) && styles.errorBorder }} value={value} onChange={onChange} />
+    <input placeholder={placeholder} type={type} label={label} id={id} style={{ ...style, ...(touched && error) && styles.errorBorder }} value={value} onChange={onChange} />
     <span style={styles.description}>{description}</span>
     {
 
@@ -102,10 +102,10 @@ class LoginForm extends Component {
     return (
       <form style={styles.container} onSubmit={handleSubmit}>
         <div style={styles.full}>
-          <Field placeholder="Username" style={styles.formControl} id="username" name="username" component={InputField} label={`Username`} />
+          <Field placeholder="Username" style={styles.formControl} id="username" name="username" type={`text`} component={InputField} label={`Username`} />
         </div>
         <div style={styles.full}>
-          <Field placeholder="Password" style={styles.formControl} id="password" name="password" component={InputField} label={`Passsword`} />
+          <Field placeholder="Password" style={styles.formControl} id="password" name="password" type={`password`} component={InputField} label={`Passsword`} />
         </div>
         <div style={{ ...styles.full, ...styles.submitButtonRow }}>
           <Button fullWidth label={`Log in`} isDisabled={submitting || !valid} />

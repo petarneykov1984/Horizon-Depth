@@ -68,7 +68,6 @@ class Landing extends Component {
   }
 
   submit = values => {
-    console.log('Login form values are: ', values);
     this.props.history.push('/upload');
   }
 

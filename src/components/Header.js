@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
-import { colors, fonts, icons } from '../theme';
+import { colors, fonts, icons, shadows } from '../theme';
 import Icon from '../components/Icon';
 import FeedbackForm from '../components/FeedbackForm';
 import Dialog from '../components/Dialog';
@@ -30,7 +30,34 @@ const styles = {
     fontSize: '12px',
     fontWeight: fonts.types.semibold,
     cursor: 'pointer',
-  }
+  },
+  flyout: {
+    borderRadius: '4px',
+    padding: '8px 22px',
+    fontSize: '12px',
+    color: colors.navDarkGrey,
+    backgroundColor: colors.white,
+    boxShadow: shadows.flyout,
+    position: 'absolute',
+    top: 27,
+    right: -5,
+    zIndex: 20,
+    cursor: 'pointer',
+  },
+  posRel: {
+    position: 'relative',
+  },
+  arrowUp: {
+    position: 'absolute',
+    top: -4,
+    right: 8,
+    width: 0,
+    height: 0,
+    borderLeft: '4px solid transparent',
+    borderRight: '4px solid transparent',
+
+    borderBottom: `4px solid ${colors.white}`,
+  },
 };
 
 class Header extends Component {
@@ -38,6 +65,7 @@ class Header extends Component {
     super();
     this.state = {
       dialogIsVisible: false,
+      logoutIsVisible: false,
     };
   }
 
@@ -47,8 +75,18 @@ class Header extends Component {
     });
   }
 
+  toggleLogout() {
+    this.setState({
+      logoutIsVisible: !this.state.logoutIsVisible,
+    });
+  }
+
   submit = values => {
-    console.log('Login form values are: ', values);
+    console.log('Feedback form values are: ', values);
+  }
+
+  logout = () => {
+    this.props.history.push('/');
   }
 
   render() {
@@ -68,7 +106,27 @@ class Header extends Component {
               </Dialog>
             )
           }
-          <span style={{ ...styles.simpleLink, marginBottom: -3, }}><Icon type={icons.cog} color={colors.navDarkGrey} size={15} /></span>
+
+          <div style={styles.posRel}>
+            <span
+              style={{ ...styles.simpleLink, marginBottom: -3, }}
+              onClick={() => this.toggleLogout()}
+            >
+              <Icon type={icons.cog} color={colors.navDarkGrey} size={15} />
+            </span>
+
+            {
+              this.state.logoutIsVisible && (
+                <div
+                  style={styles.flyout}
+                  onClick={this.logout}
+                >
+                  <span style={styles.arrowUp}></span>
+                  Logout
+              </div>
+              )
+            }
+          </div>
         </div>
       </header>
     );

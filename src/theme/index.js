@@ -1,6 +1,7 @@
 export const colors = {
   white: '#fff',
   black: '#000',
+  black05: 'rgba(0, 0, 0, .05)',
   black85: 'rgba(0, 0, 0, .85)',
   borderGrey: '#d9dadf',
   lightGrey: '#bdbdbd',
@@ -58,6 +59,7 @@ export const breakpoints = {
 
 export const shadows = {
   popup: '0 2px 7px 0 rgba(0, 0, 0, 0.15)',
+  flyout: '0 2px 4px 0 rgba(0, 0, 0, 0.19)',
 };
 
 export const h2 = {
