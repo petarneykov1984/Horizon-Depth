@@ -90,14 +90,17 @@ class Header extends Component {
   }
 
   render() {
+    const { theme } = this.props;
+    const themeColor = (theme === 'dark') ? colors.white : colors.navDarkGrey;
+
     return (
       <header style={styles.container}>
         <div style={styles.wrap}>
           <Icon type={icons.logo} color={colors.accentYellow} size={22} />
-          <span style={styles.logo}>HorizonDepth</span>
+          <span style={{ ...styles.logo, color: themeColor, }}>HorizonDepth</span>
         </div>
         <div style={styles.wrap}>
-          <span style={styles.simpleLink} onClick={() => this.toggleDialog()}>Feedback</span>
+          <span style={{ ...styles.simpleLink, color: themeColor }} onClick={() => this.toggleDialog()}>Feedback</span>
 
           {
             this.state.dialogIsVisible && (
@@ -112,7 +115,7 @@ class Header extends Component {
               style={{ ...styles.simpleLink, marginBottom: -3, }}
               onClick={() => this.toggleLogout()}
             >
-              <Icon type={icons.cog} color={colors.navDarkGrey} size={15} />
+              <Icon type={icons.cog} color={themeColor} size={15} />
             </span>
 
             {
@@ -128,7 +131,7 @@ class Header extends Component {
             }
           </div>
         </div>
-      </header>
+      </header >
     );
   }
 }

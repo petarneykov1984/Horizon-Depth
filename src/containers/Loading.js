@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
-import { h2, icons, colors } from '../theme';
+import { colors } from '../theme';
 import Header from '../components/Header';
 import LogoGradient from '../assets/logo-gradient.svg';
 

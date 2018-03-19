@@ -4,6 +4,7 @@ import Landing from './../containers/Landing';
 import NotFound from './../containers/NotFound';
 import Upload from './../containers/Upload';
 import Loading from './../containers/Loading';
+import Result from './../containers/Result';
 
 const { PUBLIC_URL } = process.env;
 
@@ -13,6 +14,7 @@ export const Routes = () => (
     <Route exact path={`${PUBLIC_URL}/upload`} component={Upload} />
     <Route exact path={`${PUBLIC_URL}/loading`} component={Loading} />
     <Route exact path={`${PUBLIC_URL}/landing`} component={Landing} />
+    <Route exact path={`${PUBLIC_URL}/result`} component={Result} />
     <Route component={NotFound} />
   </Switch>
 )

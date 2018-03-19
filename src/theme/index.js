@@ -1,5 +1,6 @@
 export const colors = {
   white: '#fff',
+  almostWhite: '#f0f0f0',
   black: '#000',
   black05: 'rgba(0, 0, 0, .05)',
   black85: 'rgba(0, 0, 0, .85)',
@@ -12,10 +13,14 @@ export const colors = {
   accentYellow: '#fec43b',
   dangerRed: '#d0021b',
   navDarkGrey: '#29323e',
+  footerGrey: '#2e302f',
+  listBorderGrey: '#484848',
 };
 
 export const gradients = {
   button: 'linear-gradient(to right, #e5b33e, #fec43b)',
+  result: 'radial-gradient(circle at 50% 50%, #686868, #000000)',
+  exportButton: 'linear-gradient(to left, #b7db76, #80b541)',
 };
 
 export const fonts = {

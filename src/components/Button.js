@@ -65,7 +65,7 @@ class Button extends Component {
   }
 
   getButtonStyles() {
-    let { fullWidth = false, hasError = false } = this.props;
+    let { fullWidth = false, hasError = false, additionalStyle } = this.props;
     let buttonStyles = styles.btnWrap;
 
     if (fullWidth) {
@@ -73,6 +73,9 @@ class Button extends Component {
     }
     if (hasError) {
       buttonStyles = { ...buttonStyles, ...styles.btnWrap.error };
+    }
+    if (additionalStyle) {
+      buttonStyles = { ...buttonStyles, ...additionalStyle };
     }
 
     return buttonStyles;
